@@ -1,0 +1,13 @@
+# Local database — preserve local inventory data
+inventory.db
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+venv/
+
+# Environment variables and secrets
+.env

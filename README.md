@@ -1,49 +1,69 @@
-# Inventory Management System
+# Cloud-Ready Inventory Management System
 
-A Python-based Inventory Management System that stores product details and manages stock using an SQLite database.
+A Python-based inventory management application with a Streamlit web dashboard, SQLite database, and Docker containerization. The project is being prepared for cloud deployment.
 
 ## Features
 
-- Add new products
-- Display all products
-- Search for a product by name
-- Sell products and update stock
-- Validate product prices and quantities
-- Prevent duplicate product names, ignoring letter case
-- Prevent sales when available stock is insufficient
-- Store inventory data persistently using SQLite
+- Add and manage products
+- Search inventory by product name
+- Record sales and update stock quantities
+- Validate product details and stock availability
+- Prevent duplicate product names
+- Display total product types, stock units, and inventory value
+- Store inventory data using SQLite
+- Run the web application inside a Docker container
 
 ## Technologies Used
 
 - Python
-- SQLite
-- SQL
+- SQLite and SQL
+- Streamlit
+- Docker
+- Git and GitHub
 - Visual Studio Code
-- Git and GitHub (for version control)
 
-## Requirements
+## Run the Terminal Application
 
-- Python 3 installed
-- No external Python packages required for the current application
+```bash
+python app.py
+```
 
-## How to Run
+## Run the Web Dashboard Locally
 
-1. Clone or download the project.
-2. Open the project folder in a terminal.
-3. Run:
+Install the required dependency:
 
-   ```bash
-   python app.py
-   ```
+```bash
+pip install -r requirements.txt
+```
 
-4. Select an option from the menu to manage inventory.
+Start the dashboard:
+
+```bash
+streamlit run web_app.py
+```
+
+Open `http://localhost:8501` in your browser.
+
+## Run with Docker
+
+Build the image:
+
+```bash
+docker build -t inventory-management .
+```
+
+Run the container with the local database mounted:
+
+```powershell
+docker run --name inventory-dashboard -p 8501:8501 --mount "type=bind,source=$((Resolve-Path .\inventory.db).Path),target=/app/inventory.db" inventory-management
+```
 
 ## Database
 
-The application uses SQLite to store product IDs, names, prices, and quantities in `inventory.db`.
-
-The database file is created in the project directory when the application runs.
+The application currently uses SQLite to store product IDs, names, prices, and quantities. The local database file is excluded from Git to protect inventory data.
 
 ## Project Status
 
-Core inventory operations and product search have been implemented and tested locally. AWS deployment is planned as a future enhancement.
+The terminal application and Streamlit dashboard have been tested locally. The Docker image builds successfully, and database persistence has been tested with a container restart.
+
+Cloud deployment and cloud-hosted persistent database integration are future enhancements.

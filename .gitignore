@@ -1,5 +1,6 @@
 # Local database — preserve local inventory data
 inventory.db
+inventory_backup.db
 
 # Python cache files
 __pycache__/

@@ -54,7 +54,7 @@ if products:
             }
             for product in products
         ],
-        use_container_width=True,
+        width="stretch",
         hide_index=True
     )
 else:
@@ -81,7 +81,7 @@ if search_name.strip():
                 }
                 for p in matches
             ],
-            use_container_width=True,
+            width="stretch",
             hide_index=True
         )
     else:
